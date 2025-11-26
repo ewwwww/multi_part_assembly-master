@@ -1,8 +1,8 @@
 import os
 import sys
-import pwd
 import argparse
 import importlib
+import getpass
 
 import torch
 import pytorch_lightning as pl
@@ -35,7 +35,8 @@ def main(cfg):
         if not os.path.exists(ckp_dir):
             # on my cluster, the temp dir is /checkpoint/$USER/$SLURM_JOB_ID
             # TODO: modify this if your cluster is different
-            usr = pwd.getpwuid(os.getuid())[0]
+            # Use getpass.getuser() for cross-platform compatibility
+            usr = getpass.getuser()
             os.system(r'ln -s /checkpoint/{}/{}/ {}'.format(
                 usr, SLURM_JOB_ID, ckp_dir))
     else:

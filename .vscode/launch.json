@@ -1,23 +1,23 @@
 {
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "Python: Debug split_data.py",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${workspaceFolder}/scripts/split_data.py",
-            "python": "C:\\Users\\zzz\\.conda\\envs\\assembly\\python.exe",
-            "console": "integratedTerminal",
-            "justMyCode": true,
-            "args": [
-                "--info_file",
-                "data/info.txt",
-                "--val_ratio",
-                "0.2",
-                "--cat_loc",
-                "1"
-            ]
-        },
+        // {
+        //     "name": "Python: Debug split_data.py",
+        //     "type": "debugpy",
+        //     "request": "launch",
+        //     "program": "${workspaceFolder}/scripts/split_data.py",
+        //     "python": "C:\\Users\\zzz\\.conda\\envs\\assembly\\python.exe",
+        //     "console": "integratedTerminal",
+        //     "justMyCode": true,
+        //     "args": [
+        //         "--info_file",
+        //         "data/info.txt",
+        //         "--val_ratio",
+        //         "0.2",
+        //         "--cat_loc",
+        //         "1"
+        //     ]
+        // },
         {
             "name": "Python: Debug train.py (Small Scale)",
             "type": "debugpy",
@@ -33,8 +33,12 @@
             "args": [
                 "--cfg_file",
                 "configs/global/global-32x1-cosine_200e-artifact-debug.py",
+                "--category",
+                "BeerBottle",
                 "--gpus",
-                "0"
+                "0",
+                "--fp16"
+
             ]
         }
     ]
