@@ -4,6 +4,20 @@ import argparse
 import importlib
 import getpass
 
+# Fix for distutils.version compatibility issue with newer setuptools
+# Ensure distutils.version is available before importing pytorch_lightning
+try:
+    import distutils.version
+except (AttributeError, ImportError):
+    # Try to import from setuptools._distutils if available
+    try:
+        import setuptools._distutils.version as distutils_version
+        import distutils
+        if not hasattr(distutils, 'version'):
+            distutils.version = distutils_version
+    except (ImportError, AttributeError):
+        pass
+
 import torch
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger

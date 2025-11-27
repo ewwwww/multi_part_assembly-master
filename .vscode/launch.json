@@ -32,7 +32,7 @@
             },
             "args": [
                 "--cfg_file",
-                "configs/global/global-32x1-cosine_200e-artifact-debug.py",
+                "configs/global/global-32x1-cosine_200e-everyday-debug.py",
                 "--category",
                 "BeerBottle",
                 "--gpus",
